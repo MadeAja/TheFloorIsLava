@@ -26,10 +26,8 @@ class FillLavaTask extends AsyncTask {
             for($x = 0; $x < 16; $x++)
                 for($y = 0; $y < $this->maxY; $y++)
                     for($z = 0; $z < 16; $z++) {
-                        if($chunk->getX() == ($x >> 4) && $chunk->getZ() == ($z >> 4)) {
-                            $chunk->setBlock($x, $y, $z, Block::LAVA);
-                            $chunks[$i] = $chunk;
-                        }
+                        $chunk->setBlock($x, $y, $z, Block::LAVA);
+                        $chunks[$i] = $chunk;
                     }
         $this->setResult((array)array_map(function($chunk){return $chunk->fastSerialize();},$chunks));
     }
