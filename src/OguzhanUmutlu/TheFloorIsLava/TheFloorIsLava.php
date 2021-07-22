@@ -156,7 +156,7 @@ class TheFloorIsLava extends PluginBase implements Listener {
                 $sender->sendMessage("§e> Active arenas' worlds: ".implode(", ",array_keys($this->arenas)));
                 break;
             default:
-                $sender->sendMessage("§c> Usage: /tfli <add, start, stop, setSpeed, remove, list>");
+                $sender->sendMessage("§c> Usage: /tfil <add, start, stop, setSpeed, remove, list>");
                 break;
         }
         return true;
