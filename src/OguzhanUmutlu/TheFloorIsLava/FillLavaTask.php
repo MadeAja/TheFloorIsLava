@@ -21,7 +21,7 @@ class FillLavaTask extends AsyncTask {
 
     public function onRun(){
         /** @var Chunk[] $chunks */
-        $chunks = array_values(array_map(function($chunk){return Chunk::fastDeserialize($chunk);},$this->chunks));
+        $chunks = array_values(array_map(function($chunk){return Chunk::fastDeserialize($chunk);},(array)$this->chunks));
         foreach($chunks as $i => $chunk)
             for($x = 0; $x < 16; $x++)
                 for($y = 0; $y < $this->maxY; $y++)
