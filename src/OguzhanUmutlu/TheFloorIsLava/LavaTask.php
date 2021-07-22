@@ -32,8 +32,8 @@ class LavaTask extends Task {
     }
 
     public function onRun(int $currentTick) {
-        $level = $this->arena["level"];
-        if(!isset(TheFloorIsLava::$instance->arenas[$this->arena["level"]]) || !Server::getInstance()->getLevelByName($this->arena["level"]) instanceof Level || $this->arena["lavaLevel"] >= Server::getInstance()->getLevelByName($this->arena["level"])->getWorldHeight()) {
+        $level = Server::getInstance()->getLevelByName($this->arena["level"]);
+        if(!isset(TheFloorIsLava::$instance->arenas[$this->arena["level"]]) || !$level instanceof Level || $this->arena["lavaLevel"] >= $level->getWorldHeight()) {
             $this->stop();
             return;
         }
