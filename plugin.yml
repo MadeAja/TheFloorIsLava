@@ -1,0 +1,16 @@
+---
+name: TheFloorIsLava
+version: 1.0.0
+api: 3.0.0
+main: OguzhanUmutlu\TheFloorIsLava\TheFloorIsLava
+
+commands:
+  tfil:
+    description: "The Floor Is Lava manager"
+    permission: thefloorislava.tfil.cmd
+
+permissions:
+  thefloorislava.tfil.cmd:
+    description: "/tfil"
+    default: op
+...
