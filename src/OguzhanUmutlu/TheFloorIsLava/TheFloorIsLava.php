@@ -153,7 +153,7 @@ class TheFloorIsLava extends PluginBase implements Listener {
                 $sender->sendMessage("§a> Arena removed!");
                 break;
             case "limit":
-                $sender->sendMessage("§e> Active arenas' worlds: ".implode(", ",array_map(function($arena){return $arena["level"] instanceof Level ? $arena["level"]->getFolderName() : "NOT FOUND!";},$this->arenas)));
+                $sender->sendMessage("§e> Active arenas' worlds: ".implode(", ",array_keys($this->arenas)));
                 break;
             default:
                 $sender->sendMessage("§c> Usage: /tfli <add, start, stop, setSpeed, remove, list>");
