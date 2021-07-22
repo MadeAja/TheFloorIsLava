@@ -33,10 +33,12 @@ class LavaTask extends Task {
 
     public function onRun(int $currentTick) {
         $level = $this->arena["level"];
+        var_dump(1);
         if(!$level instanceof Level || !isset(TheFloorIsLava::$instance->arenas[$this->arena["level"]->getFolderName()]) || $this->arena["lavaLevel"] >= $this->arena["level"]->getWorldHeight()) {
             $this->stop();
             return;
         }
+        var_dump(2);
         $async = new FillLavaTask($level->getId(), array_map(function($c){return $c->fastSerialize();},array_values($level->getChunks())), $this->arena["lavaLevel"]+1);
         Server::getInstance()->getAsyncPool()->submitTask($async);
         foreach($level->getPlayers() as $player)
