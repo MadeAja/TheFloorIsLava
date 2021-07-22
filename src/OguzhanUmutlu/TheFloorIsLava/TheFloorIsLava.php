@@ -76,6 +76,7 @@ class TheFloorIsLava extends PluginBase implements Listener {
                 $arena = $this->arenas[$level->getFolderName()];
                 $task = $arena["task"];
                 if(!$task instanceof LavaTask) break;
+                $task->setArena($arena);
                 $task->setTicks($arena["speed"]*20);
                 $sender->sendMessage("§a> Lava is now rising!");
                 break;
@@ -122,6 +123,7 @@ class TheFloorIsLava extends PluginBase implements Listener {
                 $task = $arena["task"];
                 if(!$task instanceof LavaTask) break;
                 $stop = !$task->getHandler() || $task->getHandler()->isCancelled();
+                $task->setArena($arena);
                 $task->setTicks($arena["speed"]*20);
                 if($stop)
                     $task->stop();
