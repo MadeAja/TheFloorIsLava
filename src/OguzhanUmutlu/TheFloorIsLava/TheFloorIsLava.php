@@ -161,7 +161,6 @@ class TheFloorIsLava extends PluginBase implements Listener {
         }
         return true;
     }
-
     public function onLevelRemove(LevelUnloadEvent $event) {
         unset($this->arenas[$event->getLevel()->getFolderName()]);
     }
